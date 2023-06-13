@@ -6349,6 +6349,11 @@ react-native-gesture-handler@^2.11.0:
     lodash "^4.17.21"
     prop-types "^15.7.2"
 
+react-native-google-nearby-messages@^1.0.22:
+  version "1.0.22"
+  resolved "https://registry.npmjs.org/react-native-google-nearby-messages/-/react-native-google-nearby-messages-1.0.22.tgz#034131ace9d022669d59850a719cf18ec3f77552"
+  integrity sha512-uiBL6BR31fBnxccOM0KeQRCMI5YpYLOuLPo6xEoO92pNxsd09jDsqtOdexyLaXM0yWBdXM3ERyHNZTDDlvRhyg==
+
 react-native-gradle-plugin@^0.71.19:
   version "0.71.19"
   resolved "https://registry.npmjs.org/react-native-gradle-plugin/-/react-native-gradle-plugin-0.71.19.tgz#3379e28341fcd189bc1f4691cefc84c1a4d7d232"
