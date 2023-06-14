@@ -63,7 +63,7 @@ export const CreatePasswordSheet: React.FunctionComponent<Props> = ({
       </View>
       <View style={styles.sectionContainer}>
         <Button onPress={onCreateHive} isLoading={isWalletLoading}>
-          Create wallet
+          Start your hive
         </Button>
         <Button type="tertiary" onPress={() => setVisible(false)}>
           Cancel

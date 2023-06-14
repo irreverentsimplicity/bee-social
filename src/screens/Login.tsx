@@ -45,7 +45,7 @@ export const LoginScreen: React.FunctionComponent<Props> = ({navigation}) => {
           <Button
             type="tertiary"
             onPress={() => navigation.navigate('CreateHive')}>
-            Create Wallet
+            Get Hive
           </Button>
         </View>
       </View>

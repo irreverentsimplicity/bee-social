@@ -1,5 +1,6 @@
 import React from 'react';
-
+import {Provider} from 'react-redux';
+import {store} from '../store/store.js';
 // web3js is not entirely compatible with RN
 import './utils/base64';
 
@@ -11,13 +12,15 @@ import {NavigationRoot} from './navigation';
 
 function App(): JSX.Element {
   return (
-    <SafeAreaProvider>
-      <GnosisAccountProvider>
-        <PolygonAccountProvider>
-          <NavigationRoot />
-        </PolygonAccountProvider>
-      </GnosisAccountProvider>
-    </SafeAreaProvider>
+    <Provider store={store}>
+      <SafeAreaProvider>
+        <GnosisAccountProvider>
+          <PolygonAccountProvider>
+            <NavigationRoot />
+          </PolygonAccountProvider>
+        </GnosisAccountProvider>
+      </SafeAreaProvider>
+    </Provider>
   );
 }
 
