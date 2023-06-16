@@ -5,8 +5,6 @@ import {BottomTabParamList} from '../navigation/bottomTab';
 import {SafeArea} from '../components/safeArea';
 import {Header} from '../components/header';
 import ChevronRight from '../../assets/icons/chevron-right.svg';
-import {HiddenTextView} from '../components/textViews/hiddenTextView';
-import {CopyableText} from '../components/textViews/copyableText';
 import {WarningModal} from '../components/warningModal';
 import {useAccountState} from '../hooks/useAccountState';
 import {CurrencyTypes} from '../hooks/useConfig';
@@ -36,15 +34,8 @@ export const AccountScreen: React.FunctionComponent<Props> = () => {
     <>
       <SafeArea>
         <View style={styles.container}>
-          <Header title="Account" type="primary" />
+          <Header title="Settings" type="primary" />
           <View style={styles.content}>
-            <CopyableText label="Address" text={slice.account?.address} />
-
-            <HiddenTextView
-              text={slice.account?.privateKey}
-              label="Private key"
-            />
-
             <Pressable style={styles.itemRow} onPress={onSignOutButton}>
               <Text style={styles.itemRowTitle}>Sign out</Text>
               <ChevronRight width={24} height={24} color={'#000'} />

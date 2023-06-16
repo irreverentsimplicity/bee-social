@@ -15,6 +15,11 @@ export enum CurrencyTypes {
   polygon = 'polygon',
 }
 
+export enum CardTypes {
+  hive = 'hive',
+  makeHive = 'makeHive',
+}
+
 export interface Config {
   scanApiKey: string | undefined;
   scanUrl: string | undefined;

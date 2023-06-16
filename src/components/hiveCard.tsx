@@ -1,32 +1,20 @@
 import React from 'react';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
-import {CurrencyBalance} from './currencyBalance';
-import {BLACK, RED, WHITE} from '../utils/colors';
+import {BLACK, YELLOW, WHITE} from '../utils/colors';
 import ArrowDownTray from '../../assets/icons/arrow-down-tray.svg';
 import PaperAirplane from '../../assets/icons/paper-airplane.svg';
 
 type Props = {
-  name: string;
-  balance: string | null;
-  postfix?: string;
   onReceive: () => void;
   onSend: () => void;
 };
 
-export const CurrencyCard: React.FunctionComponent<Props> = ({
-  name,
-  balance,
-  postfix,
+export const HiveCard: React.FunctionComponent<Props> = ({
   onReceive,
   onSend,
 }) => {
   return (
     <View style={styles.currencyCard}>
-      <CurrencyBalance
-        name={name}
-        balance={balance ?? ''}
-        postfix={postfix ?? ''}
-      />
       <View style={styles.actionPanel}>
         <Pressable style={styles.iconButtonContainer} onPress={onReceive}>
           <View style={styles.iconButton}>
@@ -51,7 +39,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 32,
     width: '90%',
     height: '90%',
-    backgroundColor: RED,
+    backgroundColor: YELLOW,
     marginLeft: 12,
     borderRadius: 12,
     gap: 32,

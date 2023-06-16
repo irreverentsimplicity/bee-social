@@ -9,7 +9,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import {RED, GREEN} from '../utils/colors';
+import {BLUE, GREEN} from '../utils/colors';
 
 type ButtonTypes = 'primary' | 'secondary' | 'tertiary';
 
@@ -76,7 +76,7 @@ const primaryStyles = StyleSheet.create({
   buttonText: {
     fontSize: 18,
     fontWeight: '600',
-    color: RED,
+    color: BLUE,
   },
 });
 
@@ -86,7 +86,7 @@ const secondaryStyles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 160,
     borderWidth: 2,
-    borderColor: RED,
+    borderColor: BLUE,
   },
   disabled: {
     borderColor: '#ccc',
@@ -94,7 +94,7 @@ const secondaryStyles = StyleSheet.create({
   buttonText: {
     fontSize: 18,
     fontWeight: '600',
-    color: RED,
+    color: BLUE,
   },
 });
 
@@ -109,6 +109,6 @@ const tertiaryStyles = StyleSheet.create({
   buttonText: {
     fontSize: 18,
     fontWeight: '600',
-    color: RED,
+    color: BLUE,
   },
 });

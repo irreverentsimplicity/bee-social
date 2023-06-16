@@ -1,0 +1,22 @@
+<svg width="96" height="84" xmlns="http://www.w3.org/2000/svg">
+  <!-- Central hexagon -->
+  <polygon points="48,2 70,12 70,36 48,46 26,36 26,12" style="fill:none;stroke:black"/>
+
+  <!-- Top hexagon -->
+  <polygon points="48,0 70,10 70,34 48,44 26,34 26,10" style="fill:none;stroke:black;transform:translateY(-24px)"/>
+
+  <!-- Top-right hexagon -->
+  <polygon points="48,2 70,12 70,36 48,46 26,36 26,12" style="fill:none;stroke:black;transform:translate(22px, 12px)"/>
+
+  <!-- Bottom-right hexagon -->
+  <polygon points="48,2 70,12 70,36 48,46 26,36 26,12" style="fill:none;stroke:black;transform:translate(22px, 36px)"/>
+
+  <!-- Bottom hexagon -->
+  <polygon points="48,2 70,12 70,36 48,46 26,36 26,12" style="fill:none;stroke:black;transform:translateY(24px)"/>
+
+  <!-- Bottom-left hexagon -->
+  <polygon points="48,2 70,12 70,36 48,46 26,36 26,12" style="fill:none;stroke:black;transform:translate(-22px, 36px)"/>
+
+  <!-- Top-left hexagon -->
+  <polygon points="48,2 70,12 70,36 48,46 26,36 26,12" style="fill:none;stroke:black;transform:translate(-22px, 12px)"/>
+</svg>

@@ -6,9 +6,10 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
-import {RED, GREEN, WHITE} from '../utils/colors';
+import {BLUE, GREEN, WHITE} from '../utils/colors';
 import HomeIcon from '../../assets/icons/home.svg';
 import AccountIcon from '../../assets/icons/account.svg';
+import HexagonIcon from '../../assets/icons/hexagon-icon.svg';
 
 const tabBarIcon = (routeName: string, isFocused: boolean) => {
   const renderIcon = (
@@ -25,6 +26,8 @@ const tabBarIcon = (routeName: string, isFocused: boolean) => {
   switch (routeName) {
     case 'Home':
       return renderIcon(HomeIcon);
+    case 'MakeHive':
+      return renderIcon(HexagonIcon);
     case 'Account':
       return renderIcon(AccountIcon);
   }
@@ -50,7 +53,7 @@ export const BottomTabBar: React.FunctionComponent<BottomTabBarProps> = ({
     const icon = tabBarIcon(route.name, isFocused);
 
     const onPress = () => {
-      offset.value = withTiming(index * 94);
+      offset.value = withTiming(index * 77);
       const event = navigation.emit({
         type: 'tabPress',
         target: route.key,
@@ -98,10 +101,10 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   tabBarContainer: {
-    width: 200,
+    width: 240,
     paddingHorizontal: 3,
     paddingVertical: 3,
-    backgroundColor: RED,
+    backgroundColor: BLUE,
     borderRadius: 100,
     flexDirection: 'row',
     marginBottom: 32,
@@ -122,7 +125,7 @@ const styles = StyleSheet.create({
     top: 3,
     bottom: 3,
     backgroundColor: GREEN,
-    width: 100,
+    width: 80,
     borderRadius: 100,
   },
 });
