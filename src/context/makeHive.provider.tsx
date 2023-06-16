@@ -1,5 +1,5 @@
 import React, {createContext, useContext, PropsWithChildren} from 'react';
-import HexagonImage from '../../assets/images/hexagon-image.svg';
+import HexagonImage from '../../assets/images/hive-hexagon.svg';
 
 export interface makeHiveContext {
   title: string | null;

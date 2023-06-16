@@ -7,8 +7,6 @@ import {BottomTabParamList} from '../navigation/bottomTab';
 import {RED} from '../utils/colors';
 import {Pager} from '../components/pager';
 import {MakeHiveCard} from '../components/makeHiveCard';
-import {TransactionSheet} from '../components/actionSheets/transactionSheet';
-import {TransactionHistory} from '../components/transactions/historyList';
 import {useAccountState} from '../hooks/useAccountState';
 import {CurrencyTypes} from '../hooks/useConfig';
 
@@ -46,9 +44,7 @@ export const MakeHiveScreen: React.FunctionComponent<Props> = ({}) => {
           ) : (
             <>
               <Pager onPageSelected={_setActiveCurrency}>
-                {data.map(cardData => (
-                  <MakeHiveCard key={cardData.name} />
-                ))}
+                <MakeHiveCard key={1} />
               </Pager>
             </>
           )}

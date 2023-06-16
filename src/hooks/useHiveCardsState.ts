@@ -1,6 +1,6 @@
-import {useHiveState} from '../context/hive.provider';
-import {useMakeHiveState} from '../context/makeHive.provider';
 import {CardTypes} from './useConfig';
+import Hexagon from '../../assets/images/hexagon.svg';
+import HexagonImage from '../../assets/images/hive-hexagon.svg';
 
 type Slice = {
   title: string | null;
@@ -18,19 +18,16 @@ type UseHiveCardState = () => {
 };
 
 export const useHiveCardState: UseHiveCardState = () => {
-  const hiveState = useHiveState();
-  const makeHiveState = useMakeHiveState();
-
   const state: State = {
     [CardTypes.hive]: {
-      title: hiveState.title,
-      description: hiveState.description,
-      mainImage: hiveState.mainImage,
+      title: 'Hi, Bee!',
+      description: 'Keep moving!',
+      mainImage: Hexagon,
     },
     [CardTypes.makeHive]: {
-      title: makeHiveState.title,
-      description: makeHiveState.description,
-      mainImage: makeHiveState.mainImage,
+      title: 'Get social!',
+      description: 'Start a hive!',
+      mainImage: HexagonImage,
     },
   };
 

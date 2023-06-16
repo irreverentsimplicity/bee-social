@@ -6,7 +6,6 @@ import {SafeArea} from '../components/safeArea';
 import {BottomTabParamList} from '../navigation/bottomTab';
 import {Pager} from '../components/pager';
 import {HiveCard} from '../components/hiveCard';
-import {useHiveCardState} from '../hooks/useHiveCardsState';
 import {CardTypes} from '../hooks/useConfig';
 
 type Props = {
@@ -14,19 +13,25 @@ type Props = {
 };
 
 export const HomeScreen: React.FunctionComponent<Props> = ({}) => {
-  const [selectedIndex, setSelectedIndex] = useState<number>(0);
-  const {state} = useHiveCardState();
+  const [, setSelectedIndex] = useState<number>(0);
+  const [hiveLevel, setHiveLevel] = useState<number>(1);
 
   const _setActiveCurrency = (active: number) => {
     setSelectedIndex(active);
   };
 
-  const data = Object.keys(state).map(card => ({
-    card: card as CardTypes,
-  }));
-
-  const onReceive = () => {};
-  const onSend = () => {};
+  const onAdd = () => {
+    console.log('hiveLevel ' + hiveLevel);
+    if (hiveLevel === 1) {
+      setHiveLevel(11);
+    } else if (hiveLevel === 11) {
+      setHiveLevel(12);
+    } else if (hiveLevel === 12) {
+      setHiveLevel(13);
+    } else if (hiveLevel === 13) {
+      setHiveLevel(1);
+    }
+  };
 
   return (
     <SafeArea>
@@ -34,20 +39,22 @@ export const HomeScreen: React.FunctionComponent<Props> = ({}) => {
         <View style={styles.content}>
           <>
             <Pager onPageSelected={_setActiveCurrency}>
-              {selectedIndex === 0 && (
-                <HiveCard
-                  onSend={onSend}
-                  onReceive={onReceive}
-                  key={CardTypes.hive}
-                />
-              )}
-              {selectedIndex === 1 && (
-                <HiveCard
-                  onSend={onSend}
-                  onReceive={onReceive}
-                  key={CardTypes.makeHive}
-                />
-              )}
+              <HiveCard
+                title="Hi, Bee"
+                description="How active were you today?"
+                buttonCTA="Add test honey"
+                mainImage={hiveLevel}
+                onAdd={onAdd}
+                key={CardTypes.hive}
+              />
+              <HiveCard
+                title="Get social!"
+                description="Who's going to win?"
+                buttonCTA="Make a hive"
+                mainImage={2}
+                onAdd={onAdd}
+                key={CardTypes.makeHive}
+              />
             </Pager>
           </>
         </View>

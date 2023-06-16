@@ -1,32 +1,37 @@
 import React from 'react';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 import {BLACK, YELLOW, WHITE} from '../utils/colors';
+import {CardHeader} from './cardHeader';
 import ArrowDownTray from '../../assets/icons/arrow-down-tray.svg';
-import PaperAirplane from '../../assets/icons/paper-airplane.svg';
 
 type Props = {
-  onReceive: () => void;
-  onSend: () => void;
+  onAdd: () => void;
+  title: string;
+  description: string;
+  buttonCTA: string;
+  mainImage: number;
 };
 
 export const HiveCard: React.FunctionComponent<Props> = ({
-  onReceive,
-  onSend,
+  title,
+  description,
+  buttonCTA,
+  mainImage,
+  onAdd,
 }) => {
   return (
     <View style={styles.currencyCard}>
+      <CardHeader
+        title={title}
+        description={description}
+        mainImage={mainImage}
+      />
       <View style={styles.actionPanel}>
-        <Pressable style={styles.iconButtonContainer} onPress={onReceive}>
+        <Pressable style={styles.iconButtonContainer} onPress={onAdd}>
           <View style={styles.iconButton}>
             <ArrowDownTray width={24} height={24} color={BLACK} />
           </View>
-          <Text style={styles.iconText}>Receive</Text>
-        </Pressable>
-        <Pressable style={styles.iconButtonContainer} onPress={onSend}>
-          <View style={styles.iconButton}>
-            <PaperAirplane width={24} height={24} color={BLACK} />
-          </View>
-          <Text style={styles.iconText}>Send</Text>
+          <Text style={styles.iconText}>{buttonCTA}</Text>
         </Pressable>
       </View>
     </View>
@@ -35,6 +40,7 @@ export const HiveCard: React.FunctionComponent<Props> = ({
 
 const styles = StyleSheet.create({
   currencyCard: {
+    flexDirection: 'column',
     paddingVertical: 24,
     paddingHorizontal: 32,
     width: '90%',
