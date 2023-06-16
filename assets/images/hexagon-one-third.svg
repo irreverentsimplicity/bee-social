@@ -1,0 +1,6 @@
+<svg width="160" height="160" xmlns="http://www.w3.org/2000/svg">
+  <!-- Hexagon -->
+  <polygon points="40,20 120,20 151.5,80 120,140 40,140 10,80" style="fill:white;stroke:white" stroke-width="4"/>
+  <!-- Overlay unfilled part -->
+  <polygon points="40,53.33 120,53.33 151.5,80 120,140 40,140 10,80" style="fill:none;stroke:white" stroke-width="4"/>
+</svg>

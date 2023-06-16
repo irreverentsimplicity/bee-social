@@ -1,22 +1,22 @@
-<svg width="96" height="84" xmlns="http://www.w3.org/2000/svg">
+<svg width="138" height="120" xmlns="http://www.w3.org/2000/svg">
   <!-- Central hexagon -->
-  <polygon points="48,2 70,12 70,36 48,46 26,36 26,12" style="fill:none;stroke:black"/>
+  <polygon points="69,40 93,60 69,80 45,60" style="fill:none;stroke:black"/>
 
   <!-- Top hexagon -->
-  <polygon points="48,0 70,10 70,34 48,44 26,34 26,10" style="fill:none;stroke:black;transform:translateY(-24px)"/>
+  <polygon points="69,0 93,20 69,40 45,20" style="fill:none;stroke:black"/>
 
   <!-- Top-right hexagon -->
-  <polygon points="48,2 70,12 70,36 48,46 26,36 26,12" style="fill:none;stroke:black;transform:translate(22px, 12px)"/>
+  <polygon points="103,20 127,40 103,60 79,40" style="fill:none;stroke:black"/>
 
   <!-- Bottom-right hexagon -->
-  <polygon points="48,2 70,12 70,36 48,46 26,36 26,12" style="fill:none;stroke:black;transform:translate(22px, 36px)"/>
+  <polygon points="103,60 127,80 103,100 79,80" style="fill:none;stroke:black"/>
 
   <!-- Bottom hexagon -->
-  <polygon points="48,2 70,12 70,36 48,46 26,36 26,12" style="fill:none;stroke:black;transform:translateY(24px)"/>
+  <polygon points="69,80 93,100 69,120 45,100" style="fill:none;stroke:black"/>
 
   <!-- Bottom-left hexagon -->
-  <polygon points="48,2 70,12 70,36 48,46 26,36 26,12" style="fill:none;stroke:black;transform:translate(-22px, 36px)"/>
+  <polygon points="35,60 59,80 35,100 11,80" style="fill:none;stroke:black"/>
 
   <!-- Top-left hexagon -->
-  <polygon points="48,2 70,12 70,36 48,46 26,36 26,12" style="fill:none;stroke:black;transform:translate(-22px, 12px)"/>
+  <polygon points="35,20 59,40 35,60 11,40" style="fill:none;stroke:black"/>
 </svg>
