@@ -1,6 +1,6 @@
 import React, {PropsWithChildren} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {RED} from '../utils/colors';
+import {BROWN, YELLOW} from '../utils/colors';
 
 type Props = {};
 
@@ -17,14 +17,17 @@ export const Chip: React.FunctionComponent<PropsWithChildren<Props>> = ({
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 12,
-    paddingVertical: 8,
-    backgroundColor: RED,
-    borderRadius: 100,
+    paddingVertical: 6,
+    display: 'flex',
     justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: YELLOW,
+    borderRadius: 100,
   },
   text: {
     fontSize: 16,
     fontWeight: '400',
-    color: '#FFF',
+    lineHeight: 24,
+    color: BROWN,
   },
 });

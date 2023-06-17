@@ -1,6 +1,6 @@
 import React from 'react';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
-import {BLACK, RED, WHITE} from '../utils/colors';
+import {BROWN, ORANGE, WHITE} from '../utils/colors';
 import ArrowDownTray from '../../assets/icons/arrow-down-tray.svg';
 import PaperAirplane from '../../assets/icons/paper-airplane.svg';
 
@@ -18,13 +18,13 @@ export const MakeHiveCard: React.FunctionComponent<Props> = ({
       <View style={styles.actionPanel}>
         <Pressable style={styles.iconButtonContainer} onPress={onReceive}>
           <View style={styles.iconButton}>
-            <ArrowDownTray width={24} height={24} color={BLACK} />
+            <ArrowDownTray width={24} height={24} color={BROWN} />
           </View>
           <Text style={styles.iconText}>Receive</Text>
         </Pressable>
         <Pressable style={styles.iconButtonContainer} onPress={onSend}>
           <View style={styles.iconButton}>
-            <PaperAirplane width={24} height={24} color={BLACK} />
+            <PaperAirplane width={24} height={24} color={BROWN} />
           </View>
           <Text style={styles.iconText}>Send</Text>
         </Pressable>
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 32,
     width: '90%',
     height: '90%',
-    backgroundColor: RED,
+    backgroundColor: ORANGE,
     marginLeft: 12,
     borderRadius: 12,
     gap: 32,

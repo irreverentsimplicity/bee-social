@@ -69,6 +69,8 @@ const primaryStyles = StyleSheet.create({
     backgroundColor: GREEN,
     borderRadius: 160,
     alignItems: 'center',
+    borderWidth: 2,
+    borderColor: GREEN,
   },
   disabled: {
     backgroundColor: '#ccc',

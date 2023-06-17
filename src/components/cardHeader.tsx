@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {GREEN, BLACK} from '../utils/colors';
+import {BROWN} from '../utils/colors';
 import Hexagon from '../../assets/images/hexagon.svg';
 import HexagonOneThird from '../../assets/images/hexagon-one-third.svg';
 import HexagonTwoThirds from '../../assets/images/hexagon-two-thirds.svg';
@@ -56,13 +56,13 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 40,
     fontWeight: '700',
-    color: GREEN,
+    color: BROWN,
     maxWidth: '100%',
   },
   description: {
     fontSize: 14,
-    fontWeight: '700',
-    color: BLACK,
-    maxWidth: '50%',
+    fontWeight: '500',
+    color: BROWN,
+    maxWidth: '60%',
   },
 });

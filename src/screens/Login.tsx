@@ -1,6 +1,6 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-//import Lottie from 'lottie-react-native';
+import {StyleSheet, View, Image} from 'react-native';
+// import Lottie from 'lottie-react-native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 import {Button} from '../components/button';
@@ -9,6 +9,7 @@ import * as secureStore from '../libs/secureStore';
 import {RootStackParamList} from '../navigation';
 //import StarterAnimation from '../../assets/starter-animation.json';
 import {useAccountState} from '../hooks/useAccountState';
+import Logo from '../../assets/images/bee-logo.png';
 
 type Props = {
   navigation: NativeStackNavigationProp<RootStackParamList, 'Login'>;
@@ -38,12 +39,12 @@ export const LoginScreen: React.FunctionComponent<Props> = ({navigation}) => {
       <View style={styles.container}>
         <View style={styles.animationView}>
           {/*<Lottie source={StarterAnimation} autoPlay loop />*/}
+          <Image source={Logo} style={styles.logo} />
         </View>
-
         <View style={styles.buttonContainer}>
           <Button onPress={onLogin}>Login</Button>
           <Button
-            type="tertiary"
+            type="secondary"
             onPress={() => navigation.navigate('CreateHive')}>
             Get Hive
           </Button>
@@ -69,5 +70,9 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     justifyContent: 'flex-end',
     gap: 12,
+  },
+  logo: {
+    width: 300,
+    height: 300,
   },
 });

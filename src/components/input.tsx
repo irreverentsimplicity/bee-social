@@ -10,7 +10,7 @@ import {
   ViewStyle,
 } from 'react-native';
 import CloseIcon from '../../assets/icons/close.svg';
-import {RED} from '../utils/colors';
+import {BROWN} from '../utils/colors';
 
 type Props = Pick<
   TextInputProps,
@@ -78,7 +78,7 @@ export const Input: React.FunctionComponent<Props> = ({
         />
         {!isFocused && !!value && editable && (
           <TouchableOpacity onPress={() => onChange?.('')}>
-            <CloseIcon width={20} height={20} color={RED} />
+            <CloseIcon width={20} height={20} color={BROWN} />
           </TouchableOpacity>
         )}
         {postfix ? <Text style={styles.postfix}>{postfix}</Text> : null}
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     borderRadius: 100,
     borderWidth: 1,
-    borderColor: '#474E68',
+    borderColor: BROWN,
     flexDirection: 'row',
     alignItems: 'center',
   },

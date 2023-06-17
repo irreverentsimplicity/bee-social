@@ -3,7 +3,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import Web3 from 'web3';
 import ArrowUp from '../../../assets/icons/arrow-up.svg';
 import ArrowDown from '../../../assets/icons/arrow-down.svg';
-import {RED} from '../../utils/colors';
+import {BROWN} from '../../utils/colors';
 import {CopyableText} from '../textViews/copyableText';
 import {Transaction} from '../../libs/scan';
 
@@ -35,9 +35,9 @@ export const TransactionItem: React.FunctionComponent<Props> = ({
     <View key={item.hash} style={styles.historyItem}>
       <View style={styles.historyInfoContainer}>
         {isReceived ? (
-          <ArrowDown width={24} height={24} color={RED} />
+          <ArrowDown width={24} height={24} color={BROWN} />
         ) : (
-          <ArrowUp width={24} height={24} color={RED} />
+          <ArrowUp width={24} height={24} color={BROWN} />
         )}
         <View style={styles.transactionInfo}>
           <CopyableText

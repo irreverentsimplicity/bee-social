@@ -4,6 +4,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import {Input} from '../input';
 import {Button} from '../button';
 import {ActionSheet} from './actionSheet';
+import {BROWN} from '../../utils/colors';
 
 type Props = {
   isVisible: boolean;
@@ -65,7 +66,7 @@ export const CreatePasswordSheet: React.FunctionComponent<Props> = ({
         <Button onPress={onCreateHive} isLoading={isWalletLoading}>
           Start your hive
         </Button>
-        <Button type="tertiary" onPress={() => setVisible(false)}>
+        <Button type="secondary" onPress={() => setVisible(false)}>
           Cancel
         </Button>
       </View>
@@ -81,11 +82,12 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: '900',
     textAlign: 'center',
+    color: BROWN,
   },
 
   description: {
     fontSize: 14,
     lineHeight: 20,
-    color: '#474E68',
+    color: BROWN,
   },
 });

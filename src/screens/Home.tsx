@@ -40,7 +40,7 @@ export const HomeScreen: React.FunctionComponent<Props> = ({}) => {
           <>
             <Pager onPageSelected={_setActiveCurrency}>
               <HiveCard
-                title="Hi, Bee"
+                title="Hello, Bee"
                 description="How active were you today?"
                 buttonCTA="Add test honey"
                 mainImage={hiveLevel}

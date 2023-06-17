@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {Button} from './button';
 import ChevronLeft from '../../assets/icons/chevron-left.svg';
-import {RED} from '../utils/colors';
+import {BROWN} from '../utils/colors';
 
 type HeaderTypes = 'primary' | 'secondary' | 'tertiary';
 
@@ -36,7 +36,7 @@ export const Header: React.FunctionComponent<Props> = ({
       {onBack ? (
         <View style={styles.sideContainer}>
           <Button type="tertiary" hitSlop={40} onPress={onBack}>
-            <ChevronLeft width={20} height={20} color={RED} />
+            <ChevronLeft width={20} height={20} color={BROWN} />
           </Button>
         </View>
       ) : null}
@@ -87,6 +87,7 @@ const tertiaryStyles = StyleSheet.create({
     paddingHorizontal: 16,
   },
   title: {
+    color: BROWN,
     fontSize: 16,
     fontWeight: '700',
   },

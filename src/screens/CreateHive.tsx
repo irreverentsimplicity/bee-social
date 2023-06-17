@@ -12,6 +12,7 @@ import {useLoading} from '../hooks/useLoading';
 import {CreatePasswordSheet} from '../components/actionSheets/createPasswordSheet';
 import {generatePrivateKey} from '../libs/hdkey';
 import {useAccountState} from '../hooks/useAccountState';
+import {BROWN} from '../utils/colors';
 
 type Props = {
   navigation: NativeStackNavigationProp<RootStackParamList, 'CreateHive'>;
@@ -103,7 +104,7 @@ const styles = StyleSheet.create({
   description: {
     fontSize: 14,
     lineHeight: 20,
-    color: '#474E68',
+    color: BROWN,
   },
 
   wordContainer: {

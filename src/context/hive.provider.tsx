@@ -22,7 +22,7 @@ export const hiveProvider = ({
   children,
 }: PropsWithChildren<hiveProviderProps>) => {
   //const type = CardTypes.hive;
-  const title = 'Hi, Bee!';
+  const title = 'Hello, Bee!';
   const description = 'Keep moving!';
   const mainImage = <Hexagon />;
 

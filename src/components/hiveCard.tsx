@@ -1,6 +1,6 @@
 import React from 'react';
 import {Pressable, StyleSheet, Text, View} from 'react-native';
-import {BLACK, YELLOW, WHITE} from '../utils/colors';
+import {BROWN, YELLOW, WHITE} from '../utils/colors';
 import {CardHeader} from './cardHeader';
 import ArrowDownTray from '../../assets/icons/arrow-down-tray.svg';
 
@@ -29,7 +29,7 @@ export const HiveCard: React.FunctionComponent<Props> = ({
       <View style={styles.actionPanel}>
         <Pressable style={styles.iconButtonContainer} onPress={onAdd}>
           <View style={styles.iconButton}>
-            <ArrowDownTray width={24} height={24} color={BLACK} />
+            <ArrowDownTray width={24} height={24} color={BROWN} />
           </View>
           <Text style={styles.iconText}>{buttonCTA}</Text>
         </Pressable>

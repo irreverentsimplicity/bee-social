@@ -4,7 +4,7 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 import {SafeArea} from '../components/safeArea';
 import {BottomTabParamList} from '../navigation/bottomTab';
-import {RED} from '../utils/colors';
+import {BROWN} from '../utils/colors';
 import {Pager} from '../components/pager';
 import {MakeHiveCard} from '../components/makeHiveCard';
 import {useAccountState} from '../hooks/useAccountState';
@@ -40,7 +40,7 @@ export const MakeHiveScreen: React.FunctionComponent<Props> = ({}) => {
       <View style={styles.container}>
         <View style={styles.content}>
           {isLoading ? (
-            <ActivityIndicator size={'small'} color={RED} />
+            <ActivityIndicator size={'small'} color={BROWN} />
           ) : (
             <>
               <Pager onPageSelected={_setActiveCurrency}>
