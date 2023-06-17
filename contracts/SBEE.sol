@@ -40,34 +40,49 @@ contract SBEE is ERC20 {
         emit SBEETransfer(address(0), recipient, amount);
     }
 
-    function unlockAndTransfer(address recipient, uint256 tokenId) external onlyOwner {
-        require(lockedBalanceOf[recipient][tokenId] > 0, "Recipient has no locked balance for the given tokenId");
+    function sendSBEE(address[] memory recipients) external onlyOwner {
+        uint256 range = uint256(recipients.length);
+        uint256 winner = _generateRandomNumbers(range);
+        uint256 winnerPrize = range / 2;
+        uint256 otherPrize = (range * 0.4) / (range - 1);
+        uint256 communityPrize = range * 0.1;
 
-        uint256 amount = lockedBalanceOf[recipient][tokenId];
-        delete lockedBalanceOf[recipient][tokenId];
+        for (uint256 i = 0; i < range; i++) {
+            uint256 amount = balanceOf[recipients][i];
+            delete lockedBalanceOf[recipients][i];
 
-        lockedSupply -= amount;
-        unlockedSupply += amount;
+            lockedSupply -= amount;
+            unlockedSupply += amount;
+        }
 
-        _transfer(address(this), recipient, amount);
+        _transfer(address(this), recipients[winner], winnerPrize);
+        emit SBEETransfer(address(this), recipients[winner], winnerPrize);
 
-        emit SBEETransfer(address(this), recipient, amount);
-    }
+        _transfer(address(this), address(this), communityPrize);
+        emit SBEETransfer(address(this), address(this), communityPrize);
 
-    function makeHive(address[] recipients) external onlyOwner {
 
-        uint256 amount = balanceOf[recipient][tokenId];
-        delete lockedBalanceOf[recipient][tokenId];
+        for (uint256 j = 0; j < range; j++) {
+            if (j != winner) {
 
-        lockedSupply -= amount;
-        unlockedSupply += amount;
+            _transfer(address(this), recipients[j], otherPrize);
+            emit SBEETransfer(address(this), recipients[j], otherPrize);
 
-        _transfer(address(this), recipient, amount);
-
-        emit SBEETransfer(address(this), recipient, amount);
+            }
+        }
+        
     }
 
     function getLockedBalance(address account, uint256 tokenId) public view returns (uint256) {
         return lockedBalanceOf[account][tokenId];
+    }
+
+    //utils
+
+    function _generateRandomNumbers(uint256 range) private view returns (uint256) {
+        
+        uint256 randomNumber = uint256(keccak256(abi.encodePacked(msg.sender, block.number, 6))) % range;
+        return randomNumber;
+
     }
 }

@@ -4,6 +4,7 @@ pragma solidity ^0.8.4;
 import "./Base64.sol";
 
 contract SVG {
+
     constructor() {}
 
     // Define the SVG string for a hexagon
@@ -19,7 +20,7 @@ contract SVG {
         '<svg x="-43" y="-50">'
     ];
 
-    function generateCompositeHexagons(uint8 n) public view returns (string memory) {
+    function makeHiveImage(uint8 n) public view returns (string memory) {
         require(n <= 6, "Cannot add more than 6 hexagons");
 
         // Start with the central hexagon

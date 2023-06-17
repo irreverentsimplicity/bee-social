@@ -9,7 +9,11 @@ import "./Base64.sol";
 import "hardhat/console.sol";
 
 interface ISVG {
-    function makeHive(uint8[] memory recipient) external pure returns(string memory);
+    function makeHiveImage(uint8[] memory hexagons) external pure returns(string memory);
+}
+
+interface ISBEE {
+    function sendSBEE(uint8[] memory recipients) external pure returns(string memory);
 }
 
 
@@ -17,6 +21,7 @@ interface ISVG {
 contract BeeSocial is ERC721URIStorage, ERC721Enumerable {
     
     ISVG public svg;
+    ISBEE public sbee;
 
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
@@ -26,17 +31,18 @@ contract BeeSocial is ERC721URIStorage, ERC721Enumerable {
     event NFTCreated(string id, uint256 tokenId);
     event HiveCreated(address[] participants);
     
-    constructor(address _svgAddress) ERC721("Bee Social", "BSOC") {
+    constructor(address _svgAddress, address _sbeeAddress) ERC721("Bee Social", "BSOC") {
         owner = payable(msg.sender);
         svg = ISVG(_svgAddress);
+        sbee = ISBEE(_sbeeAddress);
     }
 
     // game logic functions
-    function make_hive(address[] memory participants) public  {
+    function make_hive(address[] memory participants, uint256 eventId, uint256 tokenId) public  {
         // add logic for: choosing a winner, mint NFT, transfer NFT to the winner
         // call SBEE for transferring tokens to their new owners
 
-        emit NFTCreated(id, tokenId);
+        emit NFTCreated(eventId, tokenId);
         emit HiveCreated(participants);
     }
     
@@ -71,27 +77,20 @@ contract BeeSocial is ERC721URIStorage, ERC721Enumerable {
 
     /* Mints an NFT */
   
-    function create_nft(string memory id) public {
+    function create_nft(uint8 hexagons, string memory eventId) public {
         // sanity checks
-        require(games[id].player == msg.sender, "Only the game's player can create the NFT");
-        require(bytes(id).length >= 0, "The game you're trying to mint doesn't exist");
-        require(boardHasZeroValues(games[id].solvedBoard) == false, "You can't mint an unsolved game");
         _tokenIds.increment();
         uint256 newTokenId = _tokenIds.current();
         _safeMint(msg.sender, newTokenId);
-        string memory onChainTokenURI = generateTokenURI(newTokenId, id);
+        string memory onChainTokenURI = generateTokenURI(newTokenId, hexagons, eventId);
         _setTokenURI(newTokenId, onChainTokenURI);
-        setApprovalForAll(address(flippandoBundler), true);
+        setApprovalForAll(address(this), true);
         
         
     }
 
-    
-
-
-    function generateTokenURI(uint256 tokenId, string memory id) public view returns (string memory) {
-        Game memory game = games[id];
-        string memory svgImage = svg.generateGrid(game.solvedBoard, game.gameType);
+    function generateTokenURI(uint256 tokenId, uint8 hexagons, string memory eventId) public view returns (string memory) {
+        string memory svgImage = svg.makeHiveImage(hexagons);
         string memory jsonTokenURI = Base64.encode(
             bytes(
                 abi.encodePacked(
@@ -114,28 +113,6 @@ contract BeeSocial is ERC721URIStorage, ERC721Enumerable {
             tokenIds[i] = tokenOfOwnerByIndex(msg.sender, i);
         }
         return tokenIds;
-    }
-    
-    
-    //utils
-
-    function _generateRandomNumbers(uint256 range, uint256 count) private view returns (uint256[] memory) {
-        uint256[] memory result = new uint256[](count);
-
-        for (uint256 i = 0; i < count; i++) {
-            uint256 index = uint256(keccak256(abi.encodePacked(msg.sender, block.number, i))) % range;
-
-            for (uint256 j = 0; j < i; j++) {
-                if (result[j] == index) {
-                    index = (index + 1) % range;
-                    j = 0;
-                }
-            }
-
-            result[i] = index + 1; // Shift the value by 1
-        }
-
-        return result;
     }
 
 
